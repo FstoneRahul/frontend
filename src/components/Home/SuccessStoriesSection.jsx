@@ -1,12 +1,12 @@
 export default function SuccessStoriesSection() {
   return (
     <section className="bg-black text-white py-20 px-10">
-      <h2 className="text-3xl font-semibold mb-10">Your Success Is Our Success</h2>
+      <h2 className="text-3xl font-semibold font-['Urbanist'] mb-10">Your Success Is Our Success</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center">
 
         {/* IMAGE Placeholder */}
-        <img src="sucess.jpg" className="bg-gray-600 h-[300px] w-[600px] rounded-md flex items-center justify-center" alt="" />
+        <img src="sucess.jpg" className="h-[300px] w-[600px] rounded-md object-cover" alt="Success Story" />
 
         {/* Text Section */}
         <div className="flex flex-col justify-center">

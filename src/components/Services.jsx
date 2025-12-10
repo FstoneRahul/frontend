@@ -120,7 +120,7 @@ export default function Services({ className, style }) {
     <div className="h-[3px] w-[50px] bg-[#009ADE] mb-6"></div>
 
     <h3 className="text-xl font-semibold mb-4 tracking-wide">
-      WE TCS CANDIDATE
+      WE VET CANDIDATE
     </h3>
 
     <p className="text-gray-300 leading-relaxed mb-8">

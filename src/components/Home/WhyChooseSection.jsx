@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function WhyChooseSection() {
   return (
-    <section className="py-16 px-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+    <section className="py-20 px-10 grid grid-cols-1 md:grid-cols-2 gap-10">
 
       {/* IMAGE PLACEHOLDER - Office Team Image */}
       <motion.div
@@ -33,7 +33,7 @@ export default function WhyChooseSection() {
         viewport={{ once: true }}
       >
         <motion.h2
-          className="text-2xl font-bold"
+          className="text-3xl font-semibold font-['Urbanist']"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}

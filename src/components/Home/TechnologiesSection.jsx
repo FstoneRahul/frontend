@@ -10,7 +10,7 @@ export default function TechnologiesSection() {
       
       {/* Header */}
       <div className="flex items-center justify-center mb-14">
-        <h2 className="text-3xl font-bold text-gray-800 relative inline-block">
+        <h2 className="text-3xl font-semibold font-['Urbanist'] text-gray-800 relative inline-block">
           Technologies
           <span className="absolute left-0 -bottom-2 w-full h-[3px] bg-blue-500 rounded-full"></span>
         </h2>

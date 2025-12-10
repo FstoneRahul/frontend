@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 
 export default function PartnersSection() {
   const partners = [
-    { img: "dtcc.png", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", size: "h-[80px]" },
-    { img: "tata.png", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", size: "h-[110px]" },
-    { img: "infosys.png", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", size: "h-[110px]" },
+    { img: "dtcc.png", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", size: "h-[50px]" },
+    { img: "tata.png", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", size: "h-[90px]" },
+    { img: "infosys.png", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", size: "h-[90px]" },
   ];
 
   return (
     <section className="py-20 px-10 bg-transparent ">
       <motion.h2
-        className="text-3xl font-semibold mb-10 ml"
+        className="text-3xl font-semibold font-['Urbanist'] mb-10"
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
@@ -19,7 +19,7 @@ export default function PartnersSection() {
         Partners we are with
       </motion.h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 ml-12 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-center">
 
         {partners.map((partner, index) => (
           <motion.div
@@ -54,7 +54,7 @@ export default function PartnersSection() {
               transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
               viewport={{ once: true }}
             >
-              {partner.text}
+              Strategic partnerships drive innovation and growth. We collaborate with industry leaders to deliver exceptional value to our clients.
             </motion.p>
             <motion.button
               className="mt-3 text-blue-600 hover:underline"

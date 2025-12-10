@@ -16,7 +16,7 @@ const blocks = [
 
 export default function ValuesGrid() {
   return (
-   <section className="px-0 py-16">
+   <section className="px-0 py-20">
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0">
 
     {blocks.map((block, index) => (
