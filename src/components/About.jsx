@@ -150,7 +150,7 @@ We continue to push boundaries with innovation, reliability, and long-term clien
       </header>
 
       {renderContent()}
-      <Footer />
+      {/* <Footer /> */}
     </motion.div>
   );
 }
