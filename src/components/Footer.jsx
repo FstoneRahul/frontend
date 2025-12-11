@@ -16,7 +16,7 @@ export default function Footer({ className, style }) {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://backend-5nex.onrender.com/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

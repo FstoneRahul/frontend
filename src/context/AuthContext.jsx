@@ -41,12 +41,12 @@ export const AuthProvider = ({ children }) => {
   };
 
   const signup = async (name, email, password) => {
-    const res = await axios.post('https://backend-5nex.onrender.com//api/auth/signup', { name, email, password });
+    const res = await api.post('/api/auth/signup', { name, email, password });
     const { token } = res.data;
     localStorage.setItem('token', token);
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     // Get user data
-    const userRes = await axios.get('https://backend-5nex.onrender.com//api/auth/user');
+    const userRes = await api.get('/api/auth/user');
     setUser(userRes.data);
   };
 
