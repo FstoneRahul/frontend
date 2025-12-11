@@ -5,12 +5,36 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function Footer({ className, style }) {
-  const [mess, setMess] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
-  const handleSend = () => {
-    console.log(mess);
-    setMess("");
+  const handleSend = async () => {
+    if (!email || !message) {
+      alert("Please fill in both email and message");
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, message }),
+      });
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+        setEmail("");
+        setMessage("");
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   return (
@@ -68,10 +92,10 @@ export default function Footer({ className, style }) {
               </motion.a>
           </div>
 
-          <div className="flex items-center gap-3 text-gray-700">
+          <a href="mailto:info@fstonetechnologies.com" className="flex items-center gap-3 text-gray-700 hover:text-blue-600 transition-colors duration-300">
             <MdEmail className="text-xl md:text-2xl text-blue-600" />
-            <span className="text-sm md:text-base">www.fstonetech@gmail.com</span>
-          </div>
+            <span className="text-sm md:text-base">info@fstonetechnologies.com</span>
+          </a>
         </motion.div>
 
         {/* MIDDLE SECTION */}
@@ -134,11 +158,19 @@ export default function Footer({ className, style }) {
           <h3 className="text-blue-600 font-semibold mb-4 text-lg md:text-xl">Have a question?</h3>
 
           <input
-            type="text"
-            placeholder="Write to us"
+            type="email"
+            placeholder="Your email"
             className="w-full border border-gray-300 rounded-lg p-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm md:text-base"
-            value={mess}
-            onChange={(e) => setMess(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <input
+            type="text"
+            placeholder="Your message"
+            className="w-full border border-gray-300 rounded-lg p-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm md:text-base"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
 
           <motion.button
@@ -159,7 +191,7 @@ export default function Footer({ className, style }) {
         transition={{ duration: 0.6, delay: 0.6 }}
         viewport={{ once: true }}
       >
-        Copyright 2018 by Fstone Technologies
+        Copyright 2025 by Fstone Technologies
       </motion.div>
     </footer>
   );

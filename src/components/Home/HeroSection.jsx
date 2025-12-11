@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export default function HeroSection() {
+  const navigate = useNavigate()
   return (
     <section className="relative w-full h-[500px] bg-gray-300">
       {/* IMAGE PLACEHOLDER - Homepage Banner */}
@@ -12,7 +15,12 @@ export default function HeroSection() {
        <p className="text-white max-w-xl font-Urbanist text-lg">
         We partner closely with clients to drive real transformation—backed by deep expertise and proven results. Let’s connect and shape your future together.
        </p>
-        <button className="mt-6 border border-white px-4 py-2 text-white">
+        <button 
+          onClick={()=>{
+            navigate("/services")
+          }
+          }
+        className="mt-6 border border-white px-4 py-2 text-white">
           Get Started →
         </button>
            
