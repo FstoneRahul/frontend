@@ -1,6 +1,22 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import webdev from '../assets/webdev.jpg';
+import mainframe from '../assets/Mainframe.jpg';
+import businessAnalysis from '../assets/BusinessAnalysis.jpg';
+import softwareDev from '../assets/SoftwareDev.jpg';
+import db12132 from '../assets/12132.jpg';
+import network from '../assets/Network.jpg';
+
+import technology1 from '../assets/technology1.jpg';
+import consulting from '../assets/consulting.jpg';
+import workforce from '../assets/workforce.avif';
+import outsourcing from '../assets/outsourcing.jpg';
+import resume from '../assets/resume.png';
+import mind from '../assets/mind.png';
+import handshake from '../assets/handshake.png';
+import group from "../assets/group.png"
+
 export default function ServicesTabs() {
   const tabs = [
     "Client Services",
@@ -86,14 +102,14 @@ function ItStaffCard({ image, text }) {
 
 function ItStaffContent({ title }) {
   const skills = [
-    { image: "webdev.jpg", text: "Web Development" },
-    { image: "Mainframe.jpg", text: "Mainframe Programming" },
-    { image: "BusinessAnalysis.jpg", text: "Business Analysis" },
-    { image: "SoftwareDev.jpg", text: "Software Development & Eng." },
-    { image: "12132.jpg", text: "Database Development" },
-    { image: "Network.jpg", text: "Network Engineering" },
-    { image: "SoftwareDev.jpg", text: "System Analysis" },
-    { image: "webdev.jpg", text: "Help Desk & Technical Support" },
+    { image: webdev, text: "Web Development" },
+    { image: mainframe, text: "Mainframe Programming" },
+    { image: businessAnalysis, text: "Business Analysis" },
+    { image: softwareDev, text: "Software Development & Eng." },
+    { image: db12132, text: "Database Development" },
+    { image: network, text: "Network Engineering" },
+    { image: softwareDev, text: "System Analysis" },
+    { image: webdev, text: "Help Desk & Technical Support" },
   ];
 
   return (
@@ -127,12 +143,12 @@ function ItStaffContent({ title }) {
           {/* Dark Gradient */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/40"></div>
 
-          {/* Background image */}
-          <img
-            src="/itstaff-bg.jpg"
+          {/* Background image - placeholder */}
+          {/* <img
+            src={itstaffBg}
             alt="Background"
             className="w-full h-full object-cover opacity-40"
-          />
+          /> */}
 
           {/* Text + Button */}
           <div className="absolute top-1/2 left-10 transform -translate-y-1/2 text-white max-w-md">
@@ -239,7 +255,7 @@ function TechnologyConsultant({ title }) {
       <div className="relative w-full h-[450px] overflow-hidden">
         {/* Background Image */}
         <img
-          src="/technology1.jpg" // replace with your actual image
+          src={technology1} // replace with your actual image
           alt="Hero"
           className="w-full h-full object-cover"
         />
@@ -269,7 +285,7 @@ function TechnologyConsultant({ title }) {
       <div className="w-full grid grid-cols-1 md:grid-cols-2">
         {/* LEFT IMAGE */}
         <img
-          src="/12132.jpg" // replace with your image
+          src={db12132} // replace with your image
           alt="Section visual"
           className="w-full h-[450px] object-cover"
         />
@@ -317,7 +333,7 @@ function BusinessConsulting({ title }) {
           <div className="w-[450px] h-[300px] bg-gray-300 rounded-md overflow-hidden">
             {/* Replace image later */}
             <img
-              src="/consulting.jpg"
+              src={consulting}
               alt="placeholder"
               className="w-full h-full object-cover"
             />
@@ -398,7 +414,7 @@ function WorkforceSolutions({ title }) {
         {/* RIGHT SIDE EMPTY IMAGE AREA */}
         <div className="w-full h-[320px] bg-gray-300 rounded-md      flex items-center justify-center">
           {/* You will insert your Workforce Solutions image here later */}
-         <img src="workforce.avif" alt="" />
+         <img src={workforce} alt="" />
         </div>
       </div>
     </div>
@@ -414,7 +430,7 @@ function OutsourceServices({ title }) {
       {/* ============================ */}
       <div className="relative w-full h-[420px] overflow-hidden">
         {/* Background Image Placeholder */}
-       <img src="outsourcing.jpg" className="w-full" alt="" />
+       <img src={outsourcing} className="w-full" alt="" />
 
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/50"></div>
@@ -455,7 +471,7 @@ function OutsourceServices({ title }) {
         <div className="flex justify-center gap-16 flex-wrap">
           {/* Item 1 */}
           <div className="flex flex-col items-center">
-            <img src="resume.png" className="w-24 h-24 bg-white/30 rounded-full mb-4" alt="" />
+            <img src={resume} className="w-24 h-24 bg-white/30 rounded-full mb-4" alt="" />
             <p className="font-medium">
               Resume
               <br />
@@ -465,8 +481,8 @@ function OutsourceServices({ title }) {
 
           {/* Item 2 */}
           <div className="flex flex-col items-center">
-            <img src="mind.png" className="w-24 h-24 bg-white/30 rounded-full mb-4" alt="" />
-            
+            <img src={mind} className="w-24 h-24 bg-white/30 rounded-full mb-4" alt="" />
+
             <p className="font-medium">
               Interview
               <br />
@@ -476,8 +492,8 @@ function OutsourceServices({ title }) {
 
           {/* Item 3 */}
           <div className="flex flex-col items-center">
-            <img src="handshake.png" className="w-24 h-24 bg-white/30 rounded-full mb-4" alt="" />
-           
+            <img src={handshake} className="w-24 h-24 bg-white/30 rounded-full mb-4" alt="" />
+
             <p className="font-medium">
               Offer & Resignation
               <br />
@@ -487,8 +503,8 @@ function OutsourceServices({ title }) {
 
           {/* Item 4 */}
           <div className="flex flex-col items-center">
-            <img src="group.png" className="w-24 h-24 bg-white/30 rounded-full mb-4" alt="" />
-            
+            <img src={group} className="w-24 h-24 bg-white/30 rounded-full mb-4" alt="" />
+
             <p className="font-medium">
               Post-Interview
               <br />

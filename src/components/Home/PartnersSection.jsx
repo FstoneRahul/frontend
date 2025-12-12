@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
+import dtccImg from "../../assets/dtcc.png";
+import tataImg from "../../assets/tata.png";
+import infosysImg from "../../assets/infosys.png";
 
 export default function PartnersSection() {
   const partners = [
-    { img: "dtcc.png", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", size: "h-[50px]" },
-    { img: "tata.png", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", size: "h-[90px]" },
-    { img: "infosys.png", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", size: "h-[90px]" },
+    { img: dtccImg, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", size: "h-[50px]" },
+    { img: tataImg, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", size: "h-[90px]" },
+    { img: infosysImg, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", size: "h-[90px]" },
   ];
 
   return (

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Whychoose from '../../assets/Whychoose.jpg';
 
 export default function WhyChooseSection() {
   return (
@@ -15,7 +16,7 @@ export default function WhyChooseSection() {
         {/* Add your image here later */}
 
         <motion.img
-          src="Whychoose.jpg"
+          src={Whychoose}
           alt=""
           className="w-full h-full object-cover"
           whileHover={{ scale: 1.05 }}

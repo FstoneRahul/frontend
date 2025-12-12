@@ -4,6 +4,9 @@ import AboutSection from "./AboutSection";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import heroImg from "../assets/HeroImg.jpg";
+import fstoneImg from "../assets/FstoneIMG.png";
+import awardsImg from "../assets/sucess.jpg";
 
 export default function About({ className, style }) {
   const tabs = ["About Us", "Leadership", "Services", "Awards"];
@@ -45,7 +48,7 @@ export default function About({ className, style }) {
 We specialize in building scalable digital solutions, modernizing legacy systems, and delivering high-performance technology services for enterprises and high-growth organizations.
 
 Our mission is to empower businesses with reliable, secure, and future-ready technology—helping them innovate faster and operate smarter.`}
-                image="/HeroImg.jpg"
+                image={heroImg}
               />
             </motion.div>
 
@@ -56,7 +59,7 @@ Our mission is to empower businesses with reliable, secure, and future-ready tec
 
 We provide clients with 24×7 support, strategic consulting, and on-demand engineering expertise.`}
                 reverse
-                image="/HeroImg2.jpg"
+                image={heroImg}
               />
             </motion.div>
 
@@ -72,7 +75,7 @@ Our culture is built on:
 • Team collaboration & open communication  
 
 We invest heavily in learning and development to keep our teams ahead of industry standards.`}
-                image="/HeroImg3.jpg"
+                image={heroImg}
               />
             </motion.div>
           </ContentWrapper>
@@ -94,7 +97,7 @@ We invest heavily in learning and development to keep our teams ahead of industr
 
 • **Advisory Board (US & Europe)**  
   Senior industry leaders guiding cybersecurity, cloud, and transformation initiatives.`}
-                image="/FstoneIMG.png"
+                image={fstoneImg}
               />
             </motion.div>
           </ContentWrapper>
@@ -114,7 +117,7 @@ We invest heavily in learning and development to keep our teams ahead of industr
 
 We continue to push boundaries with innovation, reliability, and long-term client partnerships.`}
                 reverse
-                image="/AwardsImg.png"
+                image={awardsImg}
               />
             </motion.div>
           </ContentWrapper>

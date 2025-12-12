@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import girlImg from "../assets/girl.jpg";
+import recruiter1 from "../assets/recruiter.jpg";
+import recruiter2 from "../assets/recruiter2.jpg";
+import recruiter3 from "../assets/recruiter3.jpg";
+import recruiter4 from "../assets/recruiter4.jpg";
+import studentImg from "../assets/Student.jpg";
+import joinusImg from "../assets/joinus.jpg";
 
 /* --------------------------------------------------
    TABS (TOP BAR)
@@ -49,7 +56,7 @@ function CareerHero({ setActive }) {
       className="grid grid-cols-1 md:grid-cols-2 bg-white py-12"
     >
       <motion.img
-        src="girl.jpg"
+        src={girlImg}
         className="h-[360px] w-auto mx-auto rounded-md object-cover"
         alt="Career hero"
         whileHover={{ scale: 1.03 }}
@@ -82,26 +89,26 @@ function CareerHero({ setActive }) {
    SECTION 0: Recruiter Role
 -------------------------------------------------- */
 function RecruiterRoleSection() {
-  const tiles = [
+    const tiles = [
     {
       title: "Building Relationships",
       desc: "We build long-term connections with candidates and clients, ensuring trust throughout the hiring journey.",
-      image: "/recruiter.jpg",
+      image: recruiter1,
     },
     {
       title: "Business Development",
       desc: "We identify hiring needs, engage with new clients, and expand our recruitment presence across industries.",
-      image: "/recruiter2.jpg",
+      image: recruiter2,
     },
     {
       title: "Strategic Matching",
       desc: "We align talent with the right roles through skills assessment and career alignment.",
-      image: "/recruiter3.jpg",
+      image: recruiter3,
     },
     {
       title: "Client Consultation",
       desc: "We provide strategic hiring guidance, workforce planning, and talent advisory support.",
-      image: "/recruiter4.jpg",
+      image: recruiter4,
     },
   ];
 
@@ -197,7 +204,7 @@ function MoreThanMatch({ setActive }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-14">
         <motion.img
-          src="Student.jpg"
+          src={studentImg}
           alt="Student"
           className="rounded-md"
           whileHover={{ scale: 1.03 }}
@@ -274,7 +281,7 @@ function CareerWithUs({ setActive }) {
           <div className="absolute inset-0 border-[3px] border-[#0075D0] rounded-md translate-x-5 translate-y-5"></div>
 
           <motion.img
-            src="/joinus.jpg"
+            src={joinusImg}
             alt="Career"
             className="w-full h-[350px] object-cover rounded-md relative z-10"
             whileHover={{ scale: 1.03 }}

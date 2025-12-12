@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import NewsPage from '../assets/NewsPage.jpg';
 
 export default function News() {
   const newsArticles = [
@@ -66,7 +67,7 @@ export default function News() {
                 transition={{ duration: 0.4 }}
               >
                 <motion.img
-                  src="/NewsPage.jpg"
+                  src={NewsPage}
                   className="w-full h-40 md:h-52 object-cover opacity-80"
                   alt="FSTONE Banner"
                   initial={{ scale: 1.05 }}

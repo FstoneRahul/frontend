@@ -76,12 +76,12 @@ const Login = () => {
     <FaGoogle className="text-red-500" />
   </button>
 
-  <button
+  {/* <button
     onClick={() => socialLogin('github')}
     className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition duration-200"
   >
     <FaGithub className="text-gray-800" />
-  </button>
+  </button> */}
 </div>
 
         </div>

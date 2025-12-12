@@ -1,7 +1,11 @@
+import javaImg from "../../assets/java.png";
+import microsoftImg from "../../assets/microsoft.png";
+import erpImg from "../../assets/ERP.png";
+
 const techItems = [
-  { title: "JAVA/J2EE Technologies", img: "java.png" },
-  { title: "Microsoft Technologies", img: "microsoft.png" },
-  { title: "ERP Services", img: "ERP.png" },
+  { title: "JAVA/J2EE Technologies", img: javaImg },
+  { title: "Microsoft Technologies", img: microsoftImg },
+  { title: "ERP Services", img: erpImg },
 ];
 
 export default function TechnologiesSection() {

@@ -1,5 +1,6 @@
 import { FiArrowRight } from "react-icons/fi";
 import { motion } from "framer-motion";
+import heroImg from "../assets/HeroImg.jpg";
 
 export default function Hero({ className, style }) {
   return (
@@ -13,7 +14,7 @@ export default function Hero({ className, style }) {
           transition={{ duration: 0.8, ease: "easeOut" }}
           whileHover={{ scale: 1.02 }}
         >
-          <img src="HeroImg.jpg" loading="lazy" alt="Hero Image" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+          <img src={heroImg} loading="lazy" alt="Hero Image" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
         </motion.div>
 
         <motion.div

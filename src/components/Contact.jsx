@@ -1,38 +1,53 @@
 import React from "react";
 import { motion } from "framer-motion";
+import gurgaonImg from "../assets/gurgaon.jpg";
+import newjerseyImg from "../assets/NewJersey.jpg";
+import bangaloreImg from "../assets/bangalore.jpg";
+import doylestownImg from "../assets/doleystown.jpg";
+import jaipurImg from "../assets/jaipur.jpg";
 
 export default function Contact() {
   const [searchTerm, setSearchTerm] = React.useState("");
+  const [formData, setFormData] = React.useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    organization: "",
+    country: "India",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
 
  const locations = [
   { 
     title: "Gurgaon, India", 
     subtitle: "Corporate Headquarter", 
-    image: "gurgaon.jpg",
+    image: gurgaonImg,
     address: "Plot 45, Sector 44, Gurgaon, Haryana, India"
   },
   { 
     title: "New Jersey, USA", 
     subtitle: "Corporate Headquarter", 
-    image: "NewJersey.jpg",
+    image: newjerseyImg,
     address: "707 State Rd, Kendall Park, New Jersey, USA"
   },
   { 
     title: "Bangalore, India", 
     subtitle: "", 
-    image: "bangalore.jpg",
+    image: bangaloreImg,
     address: "Koramangala, Bangalore, Karnataka, India"
   },
   { 
     title: "Doylestown, PA", 
     subtitle: "", 
-    image: "doleystown.jpg",
+    image: doylestownImg,
     address: "Main Street, Doylestown, Pennsylvania, USA"
   },
   { 
     title: "Jaipur, India", 
     subtitle: "", 
-    image: "jaipur.jpg",
+    image: jaipurImg,
     address: "Vaishali Nagar, Jaipur, Rajasthan, India"
   }
 ];
@@ -40,6 +55,67 @@ export default function Contact() {
   const filteredLocations = locations.filter((loc) =>
     loc.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    console.log('Contact form data:', formData);
+
+    if (!formData.email || !formData.message) {
+      alert("Please fill in email and message");
+      setIsSubmitting(false);
+      return;
+    }
+
+    const formDataToSend = new FormData();
+    formDataToSend.append('firstName', formData.firstName);
+    formDataToSend.append('lastName', formData.lastName);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('phone', formData.phone);
+    formDataToSend.append('organization', formData.organization);
+    formDataToSend.append('country', formData.country);
+    formDataToSend.append('message', formData.message);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xdkqpzbg', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      console.log('Response status:', response.status);
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          organization: "",
+          country: "India",
+          message: ""
+        });
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error('Submit error:', error);
+      alert("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="w-full bg-[#F2F2F2]">
@@ -139,14 +215,14 @@ export default function Contact() {
             Let’s get in touch
           </motion.h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
             {/* FORM FIELD COMPONENT */}
             {[
-              { label: "First Name", type: "text" },
-              { label: "Last Name", type: "text" },
-              { label: "Email Address", type: "email" },
-              { label: "Phone Number", type: "text" },
+              { label: "First Name", name: "firstName", type: "text" },
+              { label: "Last Name", name: "lastName", type: "text" },
+              { label: "Email Address", name: "email", type: "email" },
+              { label: "Phone Number", name: "phone", type: "text" },
             ].map((field, i) => (
               <motion.div
                 key={i}
@@ -158,6 +234,9 @@ export default function Contact() {
                 <label className="text-sm text-gray-300">{field.label}</label>
                 <input
                   type={field.type}
+                  name={field.name}
+                  value={formData[field.name]}
+                  onChange={handleInputChange}
                   className="w-full bg-black border-b border-gray-600 py-3 focus:outline-none focus:border-[#0075D0] transition"
                 />
               </motion.div>
@@ -173,6 +252,9 @@ export default function Contact() {
               <label className="text-sm text-gray-300">Organization</label>
               <input
                 type="text"
+                name="organization"
+                value={formData.organization}
+                onChange={handleInputChange}
                 className="w-full bg-black border-b border-gray-600 py-3 focus:outline-none focus:border-[#0075D0] transition"
               />
             </motion.div>
@@ -185,7 +267,12 @@ export default function Contact() {
               transition={{ duration: 0.3 }}
             >
               <label className="text-sm text-gray-300">Country</label>
-              <select className="w-full bg-black border-b border-gray-600 py-3 focus:outline-none focus:border-[#0075D0] transition">
+              <select
+                name="country"
+                value={formData.country}
+                onChange={handleInputChange}
+                className="w-full bg-black border-b border-gray-600 py-3 focus:outline-none focus:border-[#0075D0] transition"
+              >
                 <option>India</option>
                 <option>United States</option>
                 <option>Canada</option>
@@ -203,27 +290,32 @@ export default function Contact() {
               <label className="text-sm text-gray-300">How can we help you?</label>
               <textarea
                 rows="6"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
                 className="w-full bg-black border border-gray-600 mt-2 p-3 focus:outline-none focus:border-[#0075D0] transition"
               ></textarea>
             </motion.div>
 
-          </div>
-
-          {/* Submit Button */}
-          <motion.div
-            className="mt-10"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-[#0075D0] text-white px-8 py-3 rounded hover:bg-blue-700 transition"
+            {/* Submit Button */}
+            <motion.div
+              className="md:col-span-2 mt-10"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
             >
-              Submit
-            </motion.button>
-          </motion.div>
+              <motion.button
+                type="submit"
+                disabled={isSubmitting}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-[#0075D0] text-white px-8 py-3 rounded hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Sending..." : "Submit"}
+              </motion.button>
+            </motion.div>
+
+          </form>
 
         </div>
       </div>

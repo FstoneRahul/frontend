@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import AboutSection from './AboutSection';
 import ServicesTabs from './ServicesTabs';
 import { motion } from 'framer-motion';
+import Service1 from '../assets/Service1.jpg';
+import service2 from '../assets/service2.jpg';
 
 export default function Services({ className, style }) {
 
@@ -28,7 +30,7 @@ export default function Services({ className, style }) {
 
     {/* Background Image */}
     <img
-      src="/Service1.jpg"
+      src={Service1}
       alt="Onboarding Support"
       className="w-full h-[400px] object-cover hover:scale-110 transition-transform duration-700"
     />
@@ -153,7 +155,7 @@ export default function Services({ className, style }) {
 
     {/* Background Image */}
     <img
-      src="/service2.jpg"
+      src={service2}
       alt="Customer Insight"
       className="w-full h-[400px] object-cover hover:scale-110 transition-transform duration-700"
     />

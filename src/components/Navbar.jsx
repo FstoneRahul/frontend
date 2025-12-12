@@ -1,13 +1,12 @@
-import {  FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import { useState, useEffect } from "react";
-import { useAuth } from "../context/AuthContext";
 import { useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { FiChevronDown } from "react-icons/fi";
+import FstoneIMG from '../assets/FstoneIMG.png';
 export default function Navbar() {
   const [active, setActive] = useState("Home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { user, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -27,11 +26,6 @@ export default function Navbar() {
     }
   }, [location.pathname]);
 
-  const handleLogout = () => {
-    logout();
-    navigate("/login");
-  };
-
   return (
     <motion.nav
       className="w-full bg-white h-20 flex items-center px-4 md:px-10 shadow-lg backdrop-blur-sm border-b border-blue-100 relative z-50"
@@ -45,7 +39,7 @@ export default function Navbar() {
         whileHover={{ scale: 1.05 }}
       >
         <img
-          src="FstoneIMG.png"
+          src={FstoneIMG}
           loading="lazy"
           alt="Fstone Logo"
           onClick={() => navigate("/")}
@@ -75,37 +69,6 @@ export default function Navbar() {
         ))}
       </motion.ul>
 
-      {/* Desktop Auth Buttons */}
-      <div className="hidden md:flex items-center gap-3 lg:gap-4">
-        {user ? (
-          <>
-            <span className="text-gray-700 text-sm lg:text-base">
-              Welcome, {user.name}
-            </span>
-            <button
-              onClick={handleLogout}
-              className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
-            >
-              Logout
-            </button>
-          </>
-        ) : (
-          <>
-            <button
-              onClick={() => navigate("/login")}
-              className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-            >
-              Login
-            </button>
-            <button
-              onClick={() => navigate("/signup")}
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
-            >
-              Sign Up
-            </button>
-          </>
-        )}
-      </div>
 
       {/* Mobile Menu Button */}
       <motion.button
@@ -150,45 +113,6 @@ export default function Navbar() {
                 </motion.li>
               ))}
 
-              <div className="border-t border-gray-200 mt-4 pt-4 px-6">
-                {user ? (
-                  <div className="space-y-3">
-                    <span className="block text-gray-700">
-                      Welcome, {user.name}
-                    </span>
-                    <button
-                      onClick={() => {
-                        handleLogout();
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600"
-                    >
-                      Logout
-                    </button>
-                  </div>
-                ) : (
-                  <div className="space-y-3">
-                    <button
-                      onClick={() => {
-                        navigate("/login");
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
-                    >
-                      Login
-                    </button>
-                    <button
-                      onClick={() => {
-                        navigate("/signup");
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
-                    >
-                      Sign Up
-                    </button>
-                  </div>
-                )}
-              </div>
             </ul>
           </motion.div>
         )}

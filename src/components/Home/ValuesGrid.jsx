@@ -1,17 +1,22 @@
 import { motion } from "framer-motion";
+import grid1 from "../../assets/grid1.jpg";
+import grid2 from "../../assets/grid2.jpg";
+import grid3 from "../../assets/grid3.jpg";
+import grid4 from "../../assets/grid4.jpg";
+import grid5 from "../../assets/grid5.jpg";
 
 const blocks = [
-  { type: "image", src: "grid1.jpg" },
+  { type: "image", src: grid1 },
   { type: "text", text: "Act with uncompromising honesty and integrity", bg: "#2E236C" },
-  { type: "image", src: "grid2.jpg" },
+  { type: "image", src: grid2 },
 
   { type: "text", text: "Safety our customer with innovative, superior quality of service.", bg: "#2F89FC" },
-  { type: "image", src: "grid3.jpg" },
+  { type: "image", src: grid3 },
   { type: "text", text: "Value and develop our employees’ talents, initiative and leadership", bg: "#6A5FA6" },
 
-  { type: "image", src: "grid4.jpg" },
+  { type: "image", src: grid4 },
   { type: "text", text: "Earn the admiration of all who are associated with ventures unlimited Inc.", bg: "#1E5D79" },
-  { type: "image", src: "grid5.jpg" },
+  { type: "image", src: grid5 },
 ];
 
 export default function ValuesGrid() {
